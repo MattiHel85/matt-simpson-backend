@@ -2,12 +2,16 @@ import express, { Request, Response } from 'express';
 import mongoose from 'mongoose';
 
 const app = express();
+// const bodyParser = require('body-parser');
+// const cors = require('cors');
 const PORT = process.env.PORT || 3000;
-
+const mongoPass = 'DCwjAHkWHpYr4dfN';
 app.use(express.json());
 
+// DB CONNECTION ADDRESS
+const uri = `mongodb+srv://mattrcsimpson:${mongoPass}@cluster0.jczyz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 // CONNECT TO MONGODB
-mongoose.connect('mongodb://HEREGOETHTHEMONGOSTUFF')
+mongoose.connect(uri)
 .then(() => {
     console.log('Connected to MongoDB');
 })
